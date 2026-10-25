@@ -7,3 +7,13 @@
 script = ExtResource("1_p2og7")
 
 [node name="ScriptHandler" parent="." unique_id=146872612 instance=ExtResource("2_q6wvk")]
+
+[node name="Controls_Overlay" type="CanvasLayer" parent="." unique_id=936206474]
+
+[node name="ActionContainer0" type="PanelContainer" parent="Controls_Overlay" unique_id=793283111]
+offset_right = 70.0
+offset_bottom = 31.0
+
+[node name="Action0" type="Button" parent="Controls_Overlay/ActionContainer0" unique_id=241907566]
+layout_mode = 2
+text = "Interact"

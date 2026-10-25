@@ -1,3 +1,8 @@
+# custom - ljones86
+/build/
+export_presets.cfg
+Scenes/*/*.tmp
+
 # Godot 4+ specific ignores
 .godot/
 /android/

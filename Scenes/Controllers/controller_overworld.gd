@@ -66,36 +66,3 @@ func executeMapScript(script: MapScript) -> void:
 func onMapLoad(on_load_script: MapScript) -> void:
 	call_deferred("emit_signal", "on_map_load", on_load_script)
 	
-
-# ===============================================================
-# ⏱️ PHASE 1: NODE REFERENCE & SETUP (The Waiter)
-# ===============================================================
-
-const GLOBAL_BUTTON_PATH = "/root/Root/Controls_Overlay/ActionContainer0/Action0" 
-
-
-func _enter_tree():
-	print("Attempting to locate the control button...")
-	
-	# Use 'await' to pause execution until this specific node path is available.
-	var target_button = await get_node(GLOBAL_BUTTON_PATH)
-
-	if target_button != null:
-		# If we reach here, the node exists! We can safely connect the signal now.
-		print("✅ Node found! Connecting button signal...")
-		target_button.connect("pressed", Callable(self, "_on_action_button_pressed"))
-	else:
-		# This means that even waiting did not help. The path is STILL wrong.
-		print("!!! CRITICAL FAILURE: Failed to find node even after waiting for it.")
-
-
-# ===============================================================
-# 🎮 PHASE 2: THE ACTION HANDLER (The Execution)
-# ===============================================================
-
-func _on_action_button_pressed():
-	print("✅ SUCCESS! Action Button was pressed. Executing core game logic.")
-	
-	# -------------------------------------------------------
-	# >>> PASTE ALL CORE GAME LOGIC HERE <<<
-	# -------------------------------------------------------

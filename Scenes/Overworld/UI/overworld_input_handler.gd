@@ -9,7 +9,7 @@ var player_controls_locked: bool = false
 signal request_open_char_builder
 
 
-func _process(delta):
+func _process(_delta):
 	processInput()
 
 
@@ -50,7 +50,8 @@ func _enter_tree():
 	print("Attempting to locate the control button...")
 	
 	# Use 'await' to pause execution until this specific node path is available.
-	var target_button = await get_node(GLOBAL_BUTTON_PATH)
+	# var target_button = await get_node(GLOBAL_BUTTON_PATH)
+	var target_button = get_node(GLOBAL_BUTTON_PATH)
 
 	if target_button != null:
 		# If we reach here, the node exists! We can safely connect the signal now.
